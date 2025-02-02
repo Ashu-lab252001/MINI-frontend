@@ -32,10 +32,6 @@ const Register = () => {
     }
     try {
       const response = await axios.post(`${API_BASE_URL}/api/auth/register`, user);
-=======
-      const response = await axios.post("https://mini-backend-32pe.onrender.com/api/auth/register", user);
->>>>>>> 4e9dc589c44f3e85846a3a93a7c3a5e4a2994eda
-
       if (response && response.data) {
         sessionStorage.setItem("user", JSON.stringify({ username: user.name, email: user.email }));
         alert("Registration Successful!");
