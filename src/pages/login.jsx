@@ -20,11 +20,9 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-<<<<<<< HEAD
       const response = await axios.post(`${API_BASE_URL}/api/auth/login`, user);
       const { username, email, mobile, token } = response.data;
-  
-      // Store user data in sessionStorage
+
       sessionStorage.setItem("authToken", token);
       sessionStorage.setItem("user", JSON.stringify({ username, email, mobile }));
   
