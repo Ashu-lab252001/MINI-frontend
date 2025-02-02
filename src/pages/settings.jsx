@@ -67,7 +67,7 @@ const SettingsPage = () => {
         return;
       }
 
-      const response = await fetch("http://localhost:3000/api/auth/update", {
+      const response = await fetch("https://mini-backend-32pe.onrender.com", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
