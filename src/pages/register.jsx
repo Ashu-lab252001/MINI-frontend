@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import m_Image from "../assets/m_image.svg";
 import cuv_Image from "../assets/cuv.png";
-const API_BASE_URL = "https://mini-backend-32pe.onrender.com";
+const API_BASE_URL = "process.env.REACT_APP_API_URL";
 
 const Register = () => {
   const navigate = useNavigate();
