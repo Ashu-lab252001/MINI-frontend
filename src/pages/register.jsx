@@ -3,7 +3,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import m_Image from "../assets/m_image.svg";
 import cuv_Image from "../assets/cuv.png";
-const API_BASE_URL = "https://mini-backend-32pe.onrender.com";
+
+// Load API Base URL from environment variables
+const API_BASE_URL = process.env.REACT_APP_API_URL || "https://mini-backend-32pe.onrender.com"; // Fallback to local backend
 
 const Register = () => {
   const navigate = useNavigate();
@@ -26,12 +28,23 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if API URL is correctly set
+    if (!API_BASE_URL) {
+      alert("API Base URL is not defined. Check your .env file.");
+      return;
+    }
+
     if (user.password !== user.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
+
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, user);
+      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, user, {
+        headers: { "Content-Type": "application/json" },
+      });
+
       if (response && response.data) {
         sessionStorage.setItem("user", JSON.stringify({ username: user.name, email: user.email }));
         alert("Registration Successful!");
@@ -41,7 +54,7 @@ const Register = () => {
       }
     } catch (error) {
       console.error("Registration error:", error);
-      alert(error.response?.data?.message || error.message || "Something went wrong");
+      alert(error.response?.data?.message || "Something went wrong. Please try again.");
     }
   };
 
