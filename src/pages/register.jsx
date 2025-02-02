@@ -30,7 +30,7 @@ const Register = () => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/register", user);
+      const response = await axios.post("https://mini-indol-psi.vercel.app/", user);
 
       if (response && response.data) {
         sessionStorage.setItem("user", JSON.stringify({ username: user.name, email: user.email }));
