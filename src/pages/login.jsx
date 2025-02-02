@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import m_Image from "../assets/m_image.svg";
 import cuv_Image from "../assets/cuv.png";
+const API_BASE_URL = "https://mini-backend-32pe.onrender.com";
 
 const Login = () => {
   const [user, setUser] = useState({ email: "", password: "" });
@@ -19,7 +20,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/login", user);
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, user);
       const { username, email, mobile, token } = response.data;
   
       // Store user data in sessionStorage

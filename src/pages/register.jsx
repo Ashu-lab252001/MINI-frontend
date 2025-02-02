@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import m_Image from "../assets/m_image.svg";
 import cuv_Image from "../assets/cuv.png";
+const API_BASE_URL = "https://mini-backend-32pe.onrender.com";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const Register = () => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/register", user);
+      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, user);
 
       if (response && response.data) {
         sessionStorage.setItem("user", JSON.stringify({ username: user.name, email: user.email }));

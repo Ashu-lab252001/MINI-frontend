@@ -7,6 +7,7 @@ import Image2 from "../assets/Icons_(2).svg";
 import Image3 from "../assets/Icons_(3).svg";
 import Image4 from "../assets/Icons.svg";
 import Image6 from "../assets/Frame_(1).png"; 
+const API_BASE_URL = "https://mini-backend-32pe.onrender.com";
 
 const SettingsPage = () => {
   const [currentTime, setCurrentTime] = useState("");
@@ -18,7 +19,6 @@ const SettingsPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
- 
     const storedUser = sessionStorage.getItem("user");
 
     if (storedUser) {
@@ -67,7 +67,7 @@ const SettingsPage = () => {
         return;
       }
 
-      const response = await fetch("http://localhost:3000/api/auth/update", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/update`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -137,7 +137,7 @@ const SettingsPage = () => {
                 className="search-bar"
                 placeholder="     Search by remarks"
                 value={searchTerm}
-                onChange={handleSearchChange} // Update this handler
+                onChange={handleSearchChange}
               />
             </div>
             <div className="profile">{username ? username.slice(0, 2).toUpperCase() : "US"}</div>
