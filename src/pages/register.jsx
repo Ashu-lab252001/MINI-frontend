@@ -31,7 +31,6 @@ const Register = () => {
       return;
     }
     try {
-<<<<<<< HEAD
       const response = await axios.post(`${API_BASE_URL}/api/auth/register`, user);
       if (response && response.data) {
         sessionStorage.setItem("user", JSON.stringify({ username: user.name, email: user.email }));
