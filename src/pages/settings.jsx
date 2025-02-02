@@ -66,8 +66,6 @@ const SettingsPage = () => {
         navigate("/login");
         return;
       }
-
-<<<<<<< HEAD
       const response = await fetch(`${API_BASE_URL}/api/auth/update`, {
         method: "PUT",
         headers: {
