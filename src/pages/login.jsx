@@ -19,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/login", user);
+      const response = await axios.post("https://mini-indol-psi.vercel.app/", user);
       const { username, email, mobile, token } = response.data;
   
       // Store user data in sessionStorage
