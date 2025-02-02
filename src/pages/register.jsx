@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import m_Image from "../assets/m_image.svg";
 import cuv_Image from "../assets/cuv.png";
 
-// Load API Base URL from environment variables
-const API_BASE_URL = process.env.REACT_APP_API_URL || "https://mini-backend-32pe.onrender.com"; // Fallback to local backend
+
+const API_BASE_URL = process.env.REACT_APP_API_URL || "https://mini-backend-32pe.onrender.com"; 
 
 const Register = () => {
   const navigate = useNavigate();
@@ -29,7 +29,6 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if API URL is correctly set
     if (!API_BASE_URL) {
       alert("API Base URL is not defined. Check your .env file.");
       return;
