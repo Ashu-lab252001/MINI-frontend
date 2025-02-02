@@ -20,11 +20,9 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-<<<<<<< HEAD
+
       const response = await axios.post(`${API_BASE_URL}/api/auth/login`, user);
-=======
-      const response = await axios.post("https://mini-backend-32pe.onrender.com", user);
->>>>>>> 4e9dc589c44f3e85846a3a93a7c3a5e4a2994eda
+
       const { username, email, mobile, token } = response.data;
   
       // Store user data in sessionStorage
