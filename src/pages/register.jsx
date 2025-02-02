@@ -30,7 +30,7 @@ const Register = () => {
       return;
     }
     try {
-      const response = await axios.post("https://mini-backend-32pe.onrender.com", user);
+      const response = await axios.post("https://mini-backend-32pe.onrender.com/api/auth/register", user);
 
       if (response && response.data) {
         sessionStorage.setItem("user", JSON.stringify({ username: user.name, email: user.email }));
